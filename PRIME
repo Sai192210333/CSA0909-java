@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class R192210333 {
+    public static boolean isPrime(int number) {
+        if (number <= 1) return false; // 0 and 1 are not prime
+        if (number == 2) return true; // 2 is the only even prime number
+        if (number % 2 == 0) return false; // Other even numbers are not prime
+        for (int i = 3; i * i <= number; i += 2) {
+            if (number % i == 0) return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the number of values you want to check:");
+        int n = scanner.nextInt();
+        
+        int primeCount = 0;
+        int compositeCount = 0;
+
+        System.out.println("Enter the numbers:");
+        for (int i = 0; i < n; i++) {
+            int num = scanner.nextInt();
+
+            if (num > 1) {
+                if (isPrime(num)) {
+                    primeCount++;
+                } else {
+                    compositeCount++;
+                }
+            }
+        }
+        System.out.println("Total Prime Numbers: " + primeCount);
+        System.out.println("Total Composite Numbers: " + compositeCount);
+        scanner.close();
+    }
+}
