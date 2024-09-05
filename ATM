@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class R192210333 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Initialize denomination values
+        final int[] denominations = {2000, 500, 200, 100};
+        int[] notesCount = new int[4];
+        int totalBalance = 0;
+
+        // Get user input for each denomination
+        for (int i = 0; i < denominations.length; i++) {
+            System.out.println("Enter the " + (i + 1) + "st Denomination: " + denominations[i]);
+            System.out.print("Enter the number of notes for " + denominations[i] + ": ");
+            notesCount[i] = scanner.nextInt();
+        }
+
+        // Calculate total balance
+        for (int i = 0; i < denominations.length; i++) {
+            totalBalance += denominations[i] * notesCount[i];
+        }
+
+        // Display the total balance
+        System.out.println("Total Available Balance in ATM: " + totalBalance);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
